@@ -1,0 +1,47 @@
+<a
+    name=""
+    id=""
+    class="btn btn-primary"
+    routerLink="/crear-categoria"
+    role="button"
+    >Crear Categoria</a
+>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for (item of this.categorias; track $index) {
+        <tr>
+            <th scope="row">{{item.id}} </th>
+            <td>{{item.nombre}} </td>
+            <td>
+                <a
+                    name=""
+                    id=""
+                    class="btn btn-primary"
+                    routerLink="/editar-categoria/{{item.id}}"
+                    role="button"
+                    >Editar</a
+                >
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="elimiar(item.id)"
+                >
+                    Eliminar
+                </button>
+                
+                
+            </td>
+          </tr>
+      }
+        
+     
+    </tbody>
+  </table>

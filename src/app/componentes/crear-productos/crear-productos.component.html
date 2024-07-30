@@ -1,0 +1,53 @@
+<h2>CREAR PRODUCTO</h2>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="" class="form-label">ID</label>
+        <input
+            type="text"
+            class="form-control"
+            formControlName="id"
+            placeholder=""
+        />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">NOMBRE</label>
+        <input
+            type="text"
+            class="form-control"
+            formControlName="nombre"
+            placeholder=""
+        />
+    </div>
+    <select formControlName="id_categoria" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option value="0">Seleccione uno</option>
+        @for (item of this.categorias; track $index) {
+            <option value="{{item.id}}"> {{item.nombre}} </option>
+
+        }
+      </select>
+    <div class="mb-3">
+        <label for="" class="form-label">PRECIO</label>
+        <input
+            type="number"
+            class="form-control"
+            formControlName="precio"
+            placeholder=""
+        />
+    </div>
+    <button
+        type="submit"
+        class="btn btn-primary"
+    >
+        Guardar
+    </button>
+    
+    <a
+        name=""
+        id=""
+        class="btn btn-danger"
+        routerLink="/listar-productos"
+        role="button"
+        >Cancelar</a
+    >
+    
+</form>
